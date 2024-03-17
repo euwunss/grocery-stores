@@ -54,7 +54,7 @@ std::string getUserDatafile() {
 
 void readFile(std::string fileName, Stores& stores) {
     std::string input, line;
-    std::string name, size, address, neighbourhood;
+    std::string name, size, address, neighborhood;
     int sqftSize;
     double latitude, longtitude;
 
@@ -78,11 +78,11 @@ void readFile(std::string fileName, Stores& stores) {
             sqftSize = stoi(data[1]);
             size = data[2];
             address = data[3];
-            neighbourhood = data[4];
+            neighborhood = data[4];
             latitude = stod(data[5]);
             longtitude = stod(data[6]);
 
-            Store groceryStore(name, sqftSize, size, address, neighbourhood, latitude, longtitude);
+            Store groceryStore(name, sqftSize, size, address, neighborhood, latitude, longtitude);
             stores.inputStore(groceryStore);
         }
         else {
