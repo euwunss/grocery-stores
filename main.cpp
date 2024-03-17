@@ -5,15 +5,16 @@
 #include <sstream>
 #include <iomanip>
 #include "store.h"
+#include "stores.h"
 
 // Function prototypes
 int getUserChoice();
 std::string getUserDatafile();
-void readFile(std::string fileName, std::vector<Store>& stores);
+void readFile(std::string fileName, Stores& stores);
 
 int main() {
-    std::vector<Store> stores;
-    
+    Stores stores;
+
     std::string fileName = getUserDatafile();
     readFile(fileName, stores);
     int userChoice = getUserChoice(); 
@@ -21,6 +22,7 @@ int main() {
     while (userChoice != 5) {
         switch(userChoice) {
             case 1:
+                stores.printInfo();
                 break;
             case 2:
                 break;
@@ -29,9 +31,11 @@ int main() {
             case 4:
                 break;
             case 5:
-                break;
+                return 0;
         }
 
+        fileName = getUserDatafile();
+        readFile(fileName, stores);
         userChoice = getUserChoice();
     }
 
@@ -41,13 +45,14 @@ int main() {
 std::string getUserDatafile() {
     std::string fileName;
 
-    std::cout << "Enter filename: ";
+    std::cout << "\nEnter filename: ";
     std::cin >> fileName;
+    std::cout << '\n';
 
     return fileName;
 }
 
-void readFile(std::string fileName, std::vector<Store>& stores) {
+void readFile(std::string fileName, Stores& stores) {
     std::string input, line;
     std::string name, size, address, neighbourhood;
     int sqftSize;
@@ -78,7 +83,7 @@ void readFile(std::string fileName, std::vector<Store>& stores) {
             longtitude = stod(data[6]);
 
             Store groceryStore(name, sqftSize, size, address, neighbourhood, latitude, longtitude);
-            stores.push_back(groceryStore);
+            stores.inputStore(groceryStore);
         }
         else {
             std::cout << "Error: Information missing." << std::endl;
