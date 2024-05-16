@@ -3,14 +3,14 @@
 #include "store.h"
 
 // constructor definition
-Store::Store(std::string name, int sqftSize, std::string size, std::string address, std::string neighborhood, double latitude, double longtitude) {
+Store::Store(std::string name, int sqftSize, std::string size, std::string address, std::string neighborhood, double latitude, double longitude) {
     this->name = name;
     this->sqftSize = sqftSize;
     this->size = size;
     this->address = address;
     this->neighborhood = neighborhood;
     this->latitude = latitude;
-    this->longtitude = longtitude;
+    this->longitude = longitude;
 }
 
 // setters functions definitions
@@ -20,7 +20,7 @@ void Store::setSize(std::string size) {this->size = size;}
 void Store::setAddress(std::string address) {this->address = address;}
 void Store::setNeighborhood(std::string neighbourhood) {this->neighborhood = neighborhood;}
 void Store::setLatitude(double latitude) {this->latitude = latitude;}
-void Store::setLongtitude(double longtitude) {this->longtitude = longtitude;}
+void Store::setLongtitude(double longitude) {this->longitude = longitude;}
 
 // getters functions definitions
 std::string Store::getName() const {return name;}
@@ -29,4 +29,4 @@ std::string Store::getSize() const {return size;}
 std::string Store::getAddress() const {return address;}
 std::string Store::getNeighborhood() const {return neighborhood;}
 double Store::getLatitude() const {return latitude;}
-double Store::getLongtitude() const {return longtitude;}
+double Store::getLongitude() const {return longitude;}

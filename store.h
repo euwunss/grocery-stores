@@ -21,7 +21,7 @@ class Store {
         std::string getAddress() const;
         std::string getNeighborhood() const;
         double getLatitude() const;
-        double getLongtitude() const;
+        double getLongitude() const;
 
     private:
         std::string name;
@@ -30,7 +30,7 @@ class Store {
         std::string address;
         std::string neighborhood;
         double latitude;
-        double longtitude;    
+        double longitude;    
 };
 
 #endif
