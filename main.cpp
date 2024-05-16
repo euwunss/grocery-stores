@@ -1,3 +1,11 @@
+/*
+Grocery Stores program designed to analyze data about food deserts and grocery stores. The program offers the user 5 options: 1 - print the general info about grocery stores, including the total number of grocery stores in a file, number of large grocery stores, and the average size for the large grocery stores with known square footage; 2 - print neighborhoods' store charts, which outputs charts of large and small stores for each neighborhood in a provided file; 3 - find the closest store, which allows the user to input longitute and latitude used to calculate the distance to the closest grocery store and/or closest large grocery store, and output the distance to the store and its address; 4 - search for store by name or a phrase, which outputs all the information about the store/stores with the same name; 4 - exit the program.
+
+Author: Olha Lashchukevych
+Date: 05/16/2024
+
+*/
+
 #include <iostream>
 #include <string>
 #include <vector>

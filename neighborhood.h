@@ -1,3 +1,8 @@
+// Author: Olha Lashchukevych
+// Date: 05/16/2024
+// Neighborhood class that keeps track of a single neighborhood
+// Header file that contains Neighborhood class declaration
+
 #ifndef NEIGHBORHOOD_H
 #define NEIGHBORHOOD_H
 

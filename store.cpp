@@ -1,3 +1,8 @@
+// Author: Olha Lashchukevych
+// Date: 05/16/2024
+// Store class that keeps track of data about a single grocery store
+// Store class implementation
+
 #include <iostream>
 #include <string>
 #include "store.h"

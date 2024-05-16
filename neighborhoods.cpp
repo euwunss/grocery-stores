@@ -1,3 +1,8 @@
+// Author: Olha Lashchukevych
+// Date: 05/16/2024
+// Neighborhoods class that keeps track of a list of neighborhoods
+// Neighborhoods class implementation
+
 #include <iostream>
 #include <algorithm>
 #include <iomanip>

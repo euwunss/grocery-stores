@@ -1,3 +1,8 @@
+// Author: Olha Lashchukevych
+// Date: 05/16/2024
+// Neighborhoods class that keeps track of a list of neighborhoods
+// Header file that contains Neighborhoods class declaration
+
 #ifndef NEIGHBORHOODS_H
 #define NEIGHBORHOODS_H
 

@@ -1,3 +1,8 @@
+// Author: Olha Lashchukevych
+// Date: 05/16/2024
+// Store class that keeps track of data about a single grocery store
+// Header file that contains Store class declaration
+
 #ifndef STORE_H
 #define STORE_H
 

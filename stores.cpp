@@ -1,3 +1,8 @@
+// Author: Olha Lashchukevych
+// Date: 05/16/2024
+// Stores class that keeps track of a list of grocery stores
+// Stores class implementation
+
 #include <iostream>
 #include <iomanip>
 #include "stores.h"

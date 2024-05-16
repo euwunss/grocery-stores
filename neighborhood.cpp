@@ -1,3 +1,8 @@
+// Author: Olha Lashchukevych
+// Date: 05/16/2024
+// Neighborhood class that keeps track of a single neighborhood
+// Neighborhood class implementation
+
 #include <iostream>
 #include <string>
 #include "neighborhood.h"
