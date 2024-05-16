@@ -6,6 +6,7 @@
 #include <iomanip>
 #include "store.h"
 #include "stores.h"
+#include "neighborhoods.h"
 
 // Function prototypes
 int getUserChoice();
@@ -14,7 +15,9 @@ void readFile(std::string fileName, Stores& stores);
 
 int main() {
     Stores stores;
+    Neighborhoods neighborhoods;
 
+    // Get a filename from user
     std::string fileName = getUserDatafile();
     readFile(fileName, stores);
     int userChoice = getUserChoice(); 
@@ -22,42 +25,46 @@ int main() {
     while (userChoice != 5) {
         switch(userChoice) {
             case 1:
+                // Menu option 1: Print general info about grocery stores
                 stores.printInfo();
                 break;
             case 2:
+                // Menu option 2: Display store charts in each neighborhood
+                neighborhoods.setNeighborhoods(stores);
+                neighborhoods.displayChart(stores);
                 break;
             case 3:
+                // FIXME: Add Menu option 3: Find the closest store to user's given location
                 break;
             case 4:
+                // FIXME: Add Menu option 4: Search for store by word or phrase
                 break;
             case 5:
+                // FIXME: Add Menu option 5: Exit program
                 return 0;
         }
-
-        fileName = getUserDatafile();
-        readFile(fileName, stores);
         userChoice = getUserChoice();
     }
-
     return 0;
 }
-
+// Prompt user to enter a datafile name to be read
 std::string getUserDatafile() {
     std::string fileName;
 
     std::cout << "\nEnter filename: ";
     std::cin >> fileName;
-    std::cout << '\n';
 
     return fileName;
 }
 
+// Read in the information from a file and store it in a vector containing grocery stores
 void readFile(std::string fileName, Stores& stores) {
     std::string input, line;
     std::string name, size, address, neighborhood;
     int sqftSize;
     double latitude, longtitude;
 
+    // Exit the program if the file could not be opened
     std::ifstream fileIn;
     fileIn.open("datafiles/" + fileName);
     if (!fileIn.is_open()) {
@@ -93,11 +100,12 @@ void readFile(std::string fileName, Stores& stores) {
     fileIn.close();
 }
 
+// Prompt user for choice from menu option
 int getUserChoice() {
     int choice;
 
     do {
-        std::cout << "Select a menu option: " << std::endl;
+        std::cout << "\nSelect a menu option: " << std::endl;
         std::cout << "   1. Display general grocery stores information" << std::endl;
         std::cout << "   2. Display neighborhood charts" << std::endl;
         std::cout << "   3. Find closest stores" << std::endl;

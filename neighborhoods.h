@@ -9,7 +9,9 @@ class Neighborhoods {
     public:
         void inputNeighborhood(Neighborhood& neighborhood);
         void setNeighborhoods(Stores& stores);
-        void displayChart() const;
+        void displayChart(Stores& stores);
+        std::vector<Neighborhood>& getNeighborhoods();
+        void sortNeighborhoods();
 
     private:
         std::vector<Neighborhood> neighborhoods;
