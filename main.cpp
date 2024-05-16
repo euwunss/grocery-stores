@@ -4,6 +4,7 @@
 #include <fstream>
 #include <sstream>
 #include <iomanip>
+#include <algorithm>
 #include "store.h"
 #include "stores.h"
 #include "neighborhoods.h"
@@ -16,6 +17,9 @@ void readFile(std::string fileName, Stores& stores);
 double getUserLatitude();
 double getUserLongitude();
 void findClosestStore(double latitude, double longitude, const Stores& stores);
+std::string getUserStore();
+void searchStore(std::string storeName, const Stores& stores);
+void strToUpper(std::string& str);
 
 int main() {
     Stores stores;
@@ -28,6 +32,7 @@ int main() {
 
     double userLatitude;
     double userLongitude;
+    std::string userStore;
 
     while (userChoice != 5) {
         switch(userChoice) {
@@ -41,16 +46,18 @@ int main() {
                 neighborhoods.displayChart(stores);
                 break;
             case 3:
-                // FIXME: Add Menu option 3: Find the closest store to user's given location
+                // Menu option 3: Find the closest store to user's given location
                 userLatitude = getUserLatitude();
                 userLongitude = getUserLongitude();
                 findClosestStore(userLatitude, userLongitude, stores);
                 break;
             case 4:
-                // FIXME: Add Menu option 4: Search for store by word or phrase
+                // Menu option 4: Search for store by word or phrase
+                userStore = getUserStore();
+                searchStore(userStore, stores);
                 break;
             case 5:
-                // FIXME: Add Menu option 5: Exit program
+                // Menu option 5: Exit program
                 return 0;
         }
         userChoice = getUserChoice();
@@ -192,4 +199,41 @@ void findClosestStore(double latitude, double longitude, const Stores& stores) {
     if (isFoodDesert) {
         std::cout << "This location is a food desert." << std::endl;
     }
+}
+
+// Prompt user for a store to search for
+std::string getUserStore() {
+    std::string storeName;
+    std::cout << "Enter store to search for: ";
+    std::cin >> storeName;
+    return storeName;
+}
+
+// Search store in a list of stores by name or a word and output information about that store
+void searchStore(std::string storeName, const Stores& stores) {
+    strToUpper(storeName);
+    bool isNameFound;
+    bool isStoreFound = false;
+
+    for (const Store& store : stores.getStoresList()) {
+        isNameFound = (store.getName().find(storeName) != std::string::npos);
+        if (isNameFound) {
+            isStoreFound = true;
+            std::cout << "Store: " << store.getName() << std::endl;
+            std::cout << "Address: " << store.getAddress() << std::endl;
+            std::cout << "Community: " << store.getNeighborhood() << std::endl;
+            std::cout << "Size: " << store.getSize() << std::endl;
+            std::cout << "Square Feet: " << store.getSqftSize() << std::endl;
+            std::cout << std::endl; 
+        }
+    }
+
+    if (!isStoreFound) {
+        std::cout << "No stores found." << std::endl;
+    }
+}
+
+// Convert a string to uppercase
+void strToUpper(std::string& str) {
+    std::transform(str.begin(), str.end(), str.begin(), ::toupper);
 }
